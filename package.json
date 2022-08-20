@@ -9,8 +9,7 @@
     "client": "cd client && npm start",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
-    "dev": "concurrently \"npm run client \" \"npm run server\"",
-    "heroku-postbuild": "cd app && cd client && npm install && npm run build"
+    "dev": "concurrently \"npm run client \" \"npm run server\""
   },
   "author": "dmitry samborskiy",
   "license": "ISC",
