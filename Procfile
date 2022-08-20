@@ -1,1 +1,1 @@
-web: nmp run start
+web: node server.js
