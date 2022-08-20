@@ -18,7 +18,7 @@ app.use(cors());
 
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {app.listen(process.env.PORT, () => {
+.then(() => {app.listen(process.env.PORT || 5000, () => {
     console.log(`Server running on port ${process.env.PORT}`);
 });})
 .catch((err) => console.log(err.message));
@@ -38,11 +38,9 @@ app.use("/api", EpisodRoute);
 app.use("/api", ImageRoute);
 app.use("/api/character/avatar/image", express.static("images"))
 
-if (process.env.NODE_ENV === "production")
-{
-    app.use("/", express.static(path.join(__dirname, "client", "build")))
 
-    app.get("*",  (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-    })
-}
+app.use("/", express.static(path.join(__dirname, "client", "build")))
+
+app.get("*",  (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
