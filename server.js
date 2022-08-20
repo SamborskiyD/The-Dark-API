@@ -17,11 +17,10 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
 
-app.use(express.static("/build"));
+app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
-app.get('/', function (req, res) {
-    const index = path.join(__dirname, 'build', 'index.html');
-    res.sendFile(index);
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "..", "client", "build", "index.html"));
 });
 
 
