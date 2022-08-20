@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use(express.static("client", "build"));
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("RUnnig")
 })
 
