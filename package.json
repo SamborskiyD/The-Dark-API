@@ -4,7 +4,7 @@
   "description": "Api app with mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "server": "nodemon server.js --ignore client",
     "client": "cd client && npm start",
     "client:install": "npm install --prefix client",
