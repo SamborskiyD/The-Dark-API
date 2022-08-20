@@ -16,20 +16,10 @@ app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
-app.use(express.static("client", "build"));
-
 app.get("/", (req, res) => {
-    res.send("RUnnig")
-})
+    res.send("Running");
+});
 
-const PORT = process.env.PORT || 5000
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});})
-.catch((err) => console.log(err.message));
-
-//Routes
 
 app.get("/api", (req, res) => {
     res.json({
@@ -43,3 +33,12 @@ app.use("/api", CharacterRoute);
 app.use("/api", EpisodRoute);
 app.use("/api", ImageRoute);
 app.use("/api/character/avatar/image", express.static("images"))
+
+
+const PORT = process.env.PORT || 5000
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});})
+.catch((err) => console.log(err.message));
+
