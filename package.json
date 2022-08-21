@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Api app with mongodb",
   "main": "index.js",
+  "homepage": "https://the-dark-api.herokuapp.com/",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js --ignore client",
