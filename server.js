@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.static("client/build"));
 
 app.get('/', function (req, res) {
-    const index = path.join("client/build", 'index.html');
+    const index = path.join("./client/build", 'index.html');
     res.sendFile(index);
   });
 
