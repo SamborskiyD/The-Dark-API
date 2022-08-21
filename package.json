@@ -9,6 +9,7 @@
     "client": "cd client && npm start",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
+    "heroku-postbuild": "npm run client:build && npm run client:install",
     "dev": "concurrently \"npm run client \" \"npm run server\""
   },
   "author": "dmitry samborskiy",
