@@ -20,8 +20,8 @@ const PORT = process.env.PORT || 5000
 
 app.get("/api", (req, res) => {
     res.json({
-        character: process.env.BASE_URL + "/api/character",
-        episode: process.env.BASE_URL + "/api/episode"
+        character: process.env.BASE_URL + "api/character",
+        episode: process.env.BASE_URL + "api/episode"
     })
 })
 
